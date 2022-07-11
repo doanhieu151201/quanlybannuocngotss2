@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Areas/AngularApp/Product/app.js"></script>
+<div ng-app="DanhmucApp" ng-controller="SanPhamCtrl">
+    <div ng-init="LoadLoaiSP()"></div>
+    <div class="row">
+        <input class="col-md-4" id="txtSearch" ng-model="sp" placeholder="Nhập từ khóa cần tìm" />
+        <input type="submit" value="Tìm kiếm" class="btn btn-success col-md-1" />
+    </div>
+    <br />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Thêm mới
+    </button>
+    <table cellpadding="12" class="table-bordered table-hover table">
+        <tr>
+            <th>Mã sản phẩm</th>
+            <th>Ảnh</th>
+            <th>Tên</th>
+            <th>Gía</th>
+            <th>Loại</th>
+            <th>Tùy chọn</th>
+        </tr>
+        <tr ng-repeat="item in listLoaiSP| filter : sp">
+
+            <td>{{item.Masp}}</td>
+            <td><img src="~/{{item.Anh}}"style="width:50px;height:50px"></td>
+            <td>{{item.Ten}}</td>
+            <td>{{item.Gia|currency:'':0}}</td>
+            <td>{{item.Loai}}</td>
+            <td>
+                <input type="button" class="btn btn-warning" value="Update" ng-click="GetSPid(item.Masp)" data-toggle="modal" data-target="#exampleModal" />
+                <input type="button" class="btn btn-danger" value="Delete" ng-click="Xoa(item)" />
+            </td>
+        </tr>
+    </table>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" role="form">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-lg-5 col-sm-8">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Mã sản phẩm:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="Nhập mã sản phẩm" ng-model="Masp" />
+                                        </div>
+
+
+                                        <label class="col-md-4 control-label">Ảnh:</label>
+                                        <div class="col-md-8">
+                                            <input type="file" id="file" class="form-control" placeholder="Nhập ảnh" ng-model="Anh" />
+                                        </div>
+
+                                        <label class="col-md-4 control-label">Tên sản phẩm:</label>
+
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="Nhập tên sản phẩm" ng-model="Ten" />
+                                        </div>
+                                        <label class="col-md-4 control-label">Gía:</label>
+
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="Nhập giá" ng-model="Gia" />
+                                        </div>
+                                        <label class="col-md-4 control-label">Loại:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="Nhập loại" ng-model="Loai" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <span id="save" class="btn btn-success margin-right-btn" ng-click="AddSanPham()">
+                        <i class="icon-save"></i> {{btntxt}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

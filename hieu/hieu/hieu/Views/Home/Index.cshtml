@@ -1,0 +1,216 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} <title>Trang chủ</title>
+
+<!-- Categories Section Begin -->
+<script src="~/Scripts/angular/Home.js"></script>
+<!-- Categories Section End -->
+<!-- Featured Section Begin -->
+<script src="~/Scripts/angular/Chitietsp.js"></script>
+<section class="featured spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Hãng nước ngọt lớn nhất</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row featured__filter">
+            <div class="col-lg-4 col-md-4 col-sm-6 mix oranges fresh-meat">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg">
+                        <img src="~/asset/img/imgcoca/sp1.png">
+
+
+                    </div>
+                    <div class="featured__item__text">
+                        <h3><a style=" color:black">Coca-Cola</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 mix vegetables fastfood">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg">
+                        <img src="~/asset/img/imgfanta/img1.jpg">
+
+                    </div>
+                    <div class="featured__item__text">
+                        <h3><a style="color:black">Fanta</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 mix vegetables fresh-meat">
+                <div class="featured__item">
+                    <div class="featured__item__pic set-bg">
+                        <img src="~/asset/img/imgsprite/img1.png">
+
+                    </div>
+                    <div class="featured__item__text">
+                        <h3><a style="color:black">Sprite</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Featured Section End -->
+<!-- Banner Begin -->
+<!-- Banner End -->
+<!-- Latest Product Section Begin -->
+<div ng-app="NuocngotApp" ng-controller="HomeCtrl">
+    <div ng-init="LoadData()"></div>
+    <div ng-init="LoadDataNhieu()"></div>
+
+    <section class="latest-product spad">
+
+
+
+
+        <div class="container">
+            <div class="row" style="text-align:center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Sản phẩm mới</h4>
+                        <div class="latest-product__slider owl-carousel" ng-repeat="item in listAllData | limitTo :4 :8">
+                            <div class="latest-prdouct__slider__item">
+                                <div class="latest-product__item__text">
+                                    <h5>{{item.Ten}}</h5>
+
+                                    <span>Gía: {{item.Gia|currency:'VNĐ':0}} </span>
+                                    <a href="/Page/Shopdetails/?MasP={{item.Masp}}" style="color:red"><i>Chi tiết</i></a>
+
+                                </div>
+                                <a class="latest-product__item">
+                                    <div class="latest-product__item__pic" style="margin-left:32%">
+                                        <img src="~/{{item.Anh}}">
+                                        <button class="addToCart" ng-click="addToCart(item)" style="color:red;border:none;"><i>Mua ngay</i></button>
+
+
+                                    </div>
+
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Sản phẩm bán nhiều </h4>
+                        <div class="latest-product__slider owl-carousel" ng-repeat="item in listAllDataNhieu | limitTo :4 :0">
+                            <div class="latest-prdouct__slider__item">
+                                <div class="latest-product__item__text">
+                                    <h5>{{item.Ten}}</h5>
+                                    <span>Số lượng:{{item.Ban}}</span>
+                                    <a href="/Page/Shopdetails/?MasP={{item.Masp}}" style="color:red"><i>Chi tiết</i></a>
+
+                                </div>
+                                <a class="latest-product__item">
+                                    <div class="latest-product__item__pic" style="margin-left:35%">
+                                        <img src="~/{{item.Anh}}">
+                                        <button class="addToCart" ng-click="addToCart(item)" style="color:red;border:none;"><i>Mua ngay</i></button>
+
+
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Sản phẩm cổ điển</h4>
+                        <div class="latest-product__slider owl-carousel" ng-repeat="item in listAllData | limitTo :4 :0">
+                            <div class="latest-prdouct__slider__item">
+                                <div class="latest-product__item__text">
+                                    <h5>{{item.Ten}}</h5>
+
+                                    <span>Gía: {{item.Gia|currency:'VNĐ':0}}</span>
+                                    <a href="/Page/Shopdetails/?MasP={{item.Masp}}" style="color:red"><i>Chi tiết</i></a>
+
+                                </div>
+                                <a class="latest-product__item">
+                                    <div class="latest-product__item__pic" style="margin-left:35%">
+                                        <img src="~/{{item.Anh}}">
+                                        <button class="addToCart" ng-click="addToCart(item)" style="color:red;border:none;"><i>Mua ngay</i></button>
+
+
+
+                                    </div>
+
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Product Section End -->
+    <!-- Blog Section Begin -->
+    <section class="from-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title from-blog__title">
+                        <h2>Tin tức mới nhất</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="~/asset/img/imgtintuc/img1.jpg" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i>Ngày 15 tháng 12 năm 2021</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Công ty Coca-cola</a></h5>
+                            <p>
+                                Coca-Cola ghi danh 100% nguồn cung ngô Hoa Kỳ trong sáng
+                                kiến nông nghiệp bền vững tiên phong.   (Khám phá)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="~/asset/img/imgtintuc/img2.png" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> Ngày 10 tháng 01,2022</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Công ty mới AHA</a></h5>
+                            <p>AHA Sparkling Water ra mắt chiến dịch quảng cáo đầu tiên(Khám phá) </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                        <div class="blog__item__pic">
+                            <img src="~/asset/img/imgtintuc/img3.png" alt="">
+                        </div>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> Ngày 09 tháng 02,2022</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#"> Coca-cola tài trợ</a></h5>
+                            <p>Giải thưởng Quỹ Coca-Cola tài trợ tổng cộng 35 triệu đô la. (Khám phá) </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Blog Section End -->

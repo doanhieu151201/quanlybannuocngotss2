@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+} <title>Giỏ hàng</title>
+<script src="~/Scripts/angular/cart.js"></script>
+<div ng-app="NuocngotApp" ng-controller="CartCtrl">
+    <div ng-init="LoadCart()"></div>
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2 style="color:black">Giỏ hàng</h2>
+                        <div class="breadcrumb__option">
+                            <a href="/Home/Index" style="color:black">Home</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    <!-- Shoping Cart Section Begin -->
+    <section class="shoping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mã sản phẩm</th>
+
+                                    <th>Sản phẩm</th>
+
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng</th>
+
+                                    <th>Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in listSP">
+                                    <td class="shoping__cart__price">
+                                        {{item.Masp}}
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <img src="~/{{item.Anh}}" style="width:50px">
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        <p>
+                                            {{item.Ten}}
+                                        </p>
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            {{item.Gia}} <span> VNĐ</span>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                        <button ng-click="Giam(item)">-</button>
+                                        <span>{{item.quantity}}</span>
+                                        <button ng-click="Tang(item)">+</button>
+
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+
+                                        {{item.quantity * item.Gia }} <span> VNĐ</span>
+
+                                    </td>
+                                    <td ng-click="Xoa(item)">
+                                        <button>Xóa</button>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="shoping__cart__btns">
+                        <a href="/Page/Index" class="primary-btn cart-btn">Tiếp tục mua sắm</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>Cart Total</h5>
+                        <ul>
+                            <li><strong>Tổng<span id="sum" class="amount"></span></strong></li>
+                        </ul>
+                        <a href="/Page/CheckOut/?Mahd={{item.Mahd}}" class="primary-btn">Thanh toán</a>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</div>

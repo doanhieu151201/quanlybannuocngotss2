@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NuocngotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Chitiethoadon">
+          <Key>
+            <PropertyRef Name="Mact" />
+          </Key>
+          <Property Name="Mact" Type="int" Nullable="false" />
+          <Property Name="Mahd" Type="int" />
+          <Property Name="Masp" Type="int" />
+          <Property Name="Soluong" Type="int" />
+        </EntityType>
+        <EntityType Name="DanhmucSP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="TenDm" Type="nvarchar" MaxLength="50" />
+          <Property Name="Isdelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="Hoadon">
+          <Key>
+            <PropertyRef Name="Mahd" />
+          </Key>
+          <Property Name="Mahd" Type="int" Nullable="false" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="50" />
+          <Property Name="Diachi" Type="nvarchar" MaxLength="250" />
+          <Property Name="Ngaygui" Type="datetime" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="taikhoan" />
+          </Key>
+          <Property Name="taikhoan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="matkhau" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SP">
+          <Key>
+            <PropertyRef Name="Masp" />
+          </Key>
+          <Property Name="Masp" Type="int" Nullable="false" />
+          <Property Name="Anh" Type="varchar" MaxLength="250" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="Ban" Type="int" />
+          <Property Name="Loai" Type="nvarchar" MaxLength="50" />
+          <Property Name="isdeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tintuc">
+          <Key>
+            <PropertyRef Name="Matt" />
+          </Key>
+          <Property Name="Matt" Type="int" Nullable="false" />
+          <Property Name="Anh" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tentt" Type="nvarchar" MaxLength="50" />
+          <Property Name="Noidung" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityContainer Name="NuocngotModelStoreContainer">
+          <EntitySet Name="Chitiethoadon" EntityType="Self.Chitiethoadon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanhmucSP" EntityType="Self.DanhmucSP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hoadon" EntityType="Self.Hoadon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SP" EntityType="Self.SP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tintuc" EntityType="Self.Tintuc" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NuocngotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DanhmucSP">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="TenDm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Isdelete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Hoadon">
+          <Key>
+            <PropertyRef Name="Mahd" />
+          </Key>
+          <Property Name="Mahd" Type="Int32" Nullable="false" />
+          <Property Name="Hoten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Diachi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Ngaygui" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="taikhoan" />
+          </Key>
+          <Property Name="taikhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="matkhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SP">
+          <Key>
+            <PropertyRef Name="Masp" />
+          </Key>
+          <Property Name="Masp" Type="Int32" Nullable="false" />
+          <Property Name="Anh" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="Ban" Type="Int32" />
+          <Property Name="Loai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isdeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tintuc">
+          <Key>
+            <PropertyRef Name="Matt" />
+          </Key>
+          <Property Name="Matt" Type="Int32" Nullable="false" />
+          <Property Name="Anh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tentt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Noidung" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="NuocngotEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DanhmucSP" EntityType="Self.DanhmucSP" />
+          <EntitySet Name="Hoadon" EntityType="Self.Hoadon" />
+          <EntitySet Name="login" EntityType="Self.login" />
+          <EntitySet Name="SP" EntityType="Self.SP" />
+          <EntitySet Name="Tintuc" EntityType="Self.Tintuc" />
+          <EntitySet Name="Chitiethoadon" EntityType="NuocngotModel.Chitiethoadon" />
+        </EntityContainer>
+        <EntityType Name="Chitiethoadon">
+          <Key>
+            <PropertyRef Name="Mact" />
+          </Key>
+          <Property Name="Mact" Type="Int32" Nullable="false" />
+          <Property Name="Mahd" Type="Int32" />
+          <Property Name="Masp" Type="Int32" />
+          <Property Name="Soluong" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NuocngotModelStoreContainer" CdmEntityContainer="NuocngotEntities">
+          <EntitySetMapping Name="DanhmucSP">
+            <EntityTypeMapping TypeName="NuocngotModel.DanhmucSP">
+              <MappingFragment StoreEntitySet="DanhmucSP">
+                <ScalarProperty Name="Isdelete" ColumnName="Isdelete" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenDm" ColumnName="TenDm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hoadon">
+            <EntityTypeMapping TypeName="NuocngotModel.Hoadon">
+              <MappingFragment StoreEntitySet="Hoadon">
+                <ScalarProperty Name="Mahd" ColumnName="Mahd" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+                <ScalarProperty Name="Ngaygui" ColumnName="Ngaygui" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="login">
+            <EntityTypeMapping TypeName="NuocngotModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
+                <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SP">
+            <EntityTypeMapping TypeName="NuocngotModel.SP">
+              <MappingFragment StoreEntitySet="SP">
+                <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+                <ScalarProperty Name="Masp" ColumnName="Masp" />
+                <ScalarProperty Name="Anh" ColumnName="Anh" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="Ban" ColumnName="Ban" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tintuc">
+            <EntityTypeMapping TypeName="NuocngotModel.Tintuc">
+              <MappingFragment StoreEntitySet="Tintuc">
+                <ScalarProperty Name="Matt" ColumnName="Matt" />
+                <ScalarProperty Name="Anh" ColumnName="Anh" />
+                <ScalarProperty Name="Tentt" ColumnName="Tentt" />
+                <ScalarProperty Name="Noidung" ColumnName="Noidung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chitiethoadon">
+            <EntityTypeMapping TypeName="NuocngotModel.Chitiethoadon">
+              <MappingFragment StoreEntitySet="Chitiethoadon">
+                <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+                <ScalarProperty Name="Masp" ColumnName="Masp" />
+                <ScalarProperty Name="Mahd" ColumnName="Mahd" />
+                <ScalarProperty Name="Mact" ColumnName="Mact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Detail_Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/angular/detailblog.js"></script>
+
+<script src="~/Scripts/angular/Blog.js"></script>
+<div ng-app="NuocngotApp" ng-controller="DBlogCtrl">
+    <div ng-init="LoadData(@ViewBag.Matt)"></div>
+
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2 style="color:black">Detail Blog</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    <!-- Checkout Section Begin -->
+    <div class="tt1">
+        <div class="td">
+            <p>
+                {{DBlog.Tentt}}
+            </p>
+        </div>
+        <div class="img1">
+            <img src="~/{{DBlog.Anh}}" alt="">
+        </div>
+        <div class="txt1">
+            <p>
+
+                {{DBlog.Noidung}}
+                <br>
+                <br>
+
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+

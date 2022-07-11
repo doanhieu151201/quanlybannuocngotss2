@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/angular/Blog.js"></script>
+<title>Tin tức</title>
+<div ng-app="NuocngotApp" ng-controller="BlogCtrl">
+    <div ng-init="LoadData1()"></div>
+
+    <div class="tintuc">
+        <div class="tt1"ng-repeat="item in listAllData">
+            <div class="b">
+                <div class="col-12 col-s-12 img1">
+                    <img src="~/{{item.Anh}}" alt="">
+                </div>
+                <div class="col-12 col-s-12 txt1">
+                    <a href="/Page/DetailBlog/?Matt=={{item.Matt}}">
+                        {{item.Tentt}}
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

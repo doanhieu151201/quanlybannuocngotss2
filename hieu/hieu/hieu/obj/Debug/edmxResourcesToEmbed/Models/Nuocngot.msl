@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NuocngotModelStoreContainer" CdmEntityContainer="NuocngotEntities">
+    <EntitySetMapping Name="DanhmucSP">
+      <EntityTypeMapping TypeName="NuocngotModel.DanhmucSP">
+        <MappingFragment StoreEntitySet="DanhmucSP">
+          <ScalarProperty Name="Isdelete" ColumnName="Isdelete" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TenDm" ColumnName="TenDm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hoadon">
+      <EntityTypeMapping TypeName="NuocngotModel.Hoadon">
+        <MappingFragment StoreEntitySet="Hoadon">
+          <ScalarProperty Name="Mahd" ColumnName="Mahd" />
+          <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="Ngaygui" ColumnName="Ngaygui" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="login">
+      <EntityTypeMapping TypeName="NuocngotModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
+          <ScalarProperty Name="matkhau" ColumnName="matkhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SP">
+      <EntityTypeMapping TypeName="NuocngotModel.SP">
+        <MappingFragment StoreEntitySet="SP">
+          <ScalarProperty Name="isdeleted" ColumnName="isdeleted" />
+          <ScalarProperty Name="Masp" ColumnName="Masp" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="Ban" ColumnName="Ban" />
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tintuc">
+      <EntityTypeMapping TypeName="NuocngotModel.Tintuc">
+        <MappingFragment StoreEntitySet="Tintuc">
+          <ScalarProperty Name="Matt" ColumnName="Matt" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+          <ScalarProperty Name="Tentt" ColumnName="Tentt" />
+          <ScalarProperty Name="Noidung" ColumnName="Noidung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chitiethoadon">
+      <EntityTypeMapping TypeName="NuocngotModel.Chitiethoadon">
+        <MappingFragment StoreEntitySet="Chitiethoadon">
+          <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+          <ScalarProperty Name="Masp" ColumnName="Masp" />
+          <ScalarProperty Name="Mahd" ColumnName="Mahd" />
+          <ScalarProperty Name="Mact" ColumnName="Mact" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

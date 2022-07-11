@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Tintuc";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Areas/AngularApp/Tintuc/app.js"></script>
+<div ng-app="DanhmucApp" ng-controller="TintucCtrl">
+    <div ng-init="LoadLoaiTintuc()"></div>
+    <div class="row">
+        <input class="col-md-4" id="txtSearch" ng-model="sp" placeholder="Nhập từ khóa cần tìm" />
+        <input type="submit" value="Tìm kiếm" class="btn btn-success col-md-1" />
+    </div>
+    <br />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Thêm
+    </button>
+    <table cellpadding="12" class="table-bordered table-hover table">
+        <tr>
+            <th>Mã tin tức</th>
+            <th>Ảnh</th>
+            <th>Tên tin tức</th>
+            <th>Nội dung</th>
+            <th>Tùy chọn</th>
+        </tr>
+        <tr ng-repeat="item in listTintuc| filter : tt">
+            <td>{{item.Matt}}</td>
+            <td><img src="~/{{item.Anh}}" style="width:50px;height:50px"></td>
+            <td>{{item.Tentt}}</td>
+            <td>{{item.Noidung}}</td>
+            
+            <td>
+                <input type="button" class="btn btn-warning" value="Update" ng-click="GetSPid(item.Matt)" data-toggle="modal" data-target="#exampleModal" />
+                <input type="button" class="btn btn-danger" value="Delete" ng-click="Xoa(item)" />
+            </td>
+        </tr>
+    </table>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal" role="form">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-lg-5 col-sm-8">
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label">Mã tin tức:</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="Nhập mã tin tức" ng-model="Matt" />
+                                        </div>
+
+
+                                        <label class="col-md-4 control-label">Ảnh:</label>
+                                        <div class="col-md-8">
+                                            <input type="file" id="file" class="form-control" placeholder="Nhập ảnh" ng-model="Anh" />
+                                        </div>
+
+                                        <label class="col-md-4 control-label">Tên tin tức:</label>
+
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="Nhập tên tin tức" ng-model="Tentt" />
+                                        </div>
+                                        <label class="col-md-4 control-label">Nội dung:</label>
+
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="Nhập nội dung" ng-model="Noidung" />
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <span id="save" class="btn btn-success margin-right-btn"value="Submit" type="button" ng-click="AddTintuc()">
+                        <i class="icon-save"></i> {{btntxt}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
